@@ -1,0 +1,28 @@
+<div class="game-container">
+  <h1>Tic-Tac Toe</h1>
+  <div *ngIf="!winner && !isDraw" class="turn-indicator">
+    this is player {{ currentPlayer }}'s turn
+  </div>
+  <div class="board">
+    <div
+      *ngFor="let cell of board; let i = index"
+      (click)="makeMove(i)"
+      class="cell"
+    >
+      {{ cell }}
+    </div>
+  </div>
+
+  <div *ngIf="winner" class="winner" [ngStyle]="{ backgroundColor: 'green' }">
+    {{ winner }}'s player won!
+  </div>
+  <div
+    *ngIf="isDraw && !winner"
+    class="draw"
+    [ngStyle]="{ backgroundColor: 'orange' }"
+  >
+    game ends with draw!
+  </div>
+
+  <button (click)="resetGame()">Reset Game</button>
+</div>
