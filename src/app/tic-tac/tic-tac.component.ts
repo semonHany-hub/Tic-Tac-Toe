@@ -32,7 +32,7 @@ export class TicTacComponent {
     if (this.isInvalidMove(index)) return;
 
     this.board[index] = this.currentPlayer;
-    this.updateGameStatus(index);
+    this.updateGameStatus();
   }
 
   private switchPlayer() {
